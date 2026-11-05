@@ -1,0 +1,4 @@
+body { background-color: #f8f9fa; }
+.post-thumb { max-height: 220px; object-fit: cover; }
+.post-cover { max-height: 420px; object-fit: cover; width: 100%; }
+.avatar-lg { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
