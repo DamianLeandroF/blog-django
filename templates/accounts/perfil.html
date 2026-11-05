@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Mi perfil · Blog{% endblock %}
+{% block content %}
+<div class="card shadow-sm mb-4"><div class="card-body d-flex align-items-center gap-4">
+    {% if user.perfil.imagen %}
+    <img src="{{ user.perfil.imagen.url }}" class="avatar-lg" alt="Imagen de perfil">
+    {% else %}
+    <div class="avatar-lg bg-secondary d-flex align-items-center justify-content-center text-white fs-1">{{ user.username|slice:":1"|upper }}</div>
+    {% endif %}
+    <div>
+        <h1 class="h3">{{ user.username }}</h1>
+        <p class="mb-1">{{ user.get_full_name }} {{ user.email }}</p>
+        {% if user.perfil.bio %}<p>{{ user.perfil.bio }}</p>{% endif %}
+        <a href="{% url 'accounts:editar_perfil' %}" class="btn btn-outline-primary btn-sm">Editar perfil</a>
+    </div>
+</div></div>
+<h2 class="h4">Mis posts</h2>
+<ul class="list-group">
+    {% for post in posts %}
+    <li class="list-group-item"><a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a> <small class="text-muted">{{ post.creado|date:"d/m/Y" }}</small></li>
+    {% empty %}
+    <li class="list-group-item text-muted">Todavía no publicaste nada.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
