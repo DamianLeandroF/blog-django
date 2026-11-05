@@ -54,7 +54,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. (Opcional) Configurar variables de entorno copiando el archivo de ejemplo. Si no se crea `.env`, se usan valores de desarrollo por defecto.
+4. (Opcional) Configurar variables de entorno copiando el archivo de ejemplo. Si no se crea `.env`, se genera una clave aleatoria temporal en cada arranque (las sesiones se pierden al reiniciar el servidor).
 
 ```bash
 cp .env.example .env
